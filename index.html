@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Bootstrap JS for interactive components -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Roboto font for Intel-inspired look -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet" />
+  <script>
+    // Auto-detect language and adjust RTL layout
+    function isRTL(lang) {
+      // List of common RTL language codes
+      const rtlLangs = ['ar', 'he', 'fa', 'ur'];
+      return rtlLangs.includes(lang);
+    }
+    function setRTLLanguage() {
+      // Try to detect language from <html> or <body>
+      const htmlLang = document.documentElement.lang || '';
+      const bodyLang = document.body.getAttribute('lang') || '';
+      const detectedLang = bodyLang || htmlLang;
+      if (isRTL(detectedLang)) {
+        document.body.setAttribute('dir', 'rtl');
+      } else {
+        document.body.setAttribute('dir', 'ltr');
+      }
+    }
+    // Run on page load and when Google Translate changes language
+    document.addEventListener('DOMContentLoaded', setRTLLanguage);
+    // Listen for Google Translate events
+    const observer = new MutationObserver(setRTLLanguage);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intel: Sustainability Through the Ages</title>
+  <!-- Bootstrap RTL CSS for right-to-left support -->
+  <link rel="stylesheet" href="bootstrap.rtl.min.css" />
   <link rel="stylesheet" href="style.css" />
+  <!-- Bootstrap Icons CDN for reliable icon display -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
 </head>
-<body>
+<body dir="rtl">
 
   <!-- Header / Hero Section -->
   <header class="hero">
     <div>
       <!-- Intel logo for hero section -->
-      <img src="img/intel-header-logo.svg" alt="Intel Logo" class="hero-logo" />
+  <img src="img/intel-header-logo.svg" alt="Intel Corporation logo" class="hero-logo" />
       <!-- Main Heading -->
       <h1 class="hero-headline">
         Sustainability Through the Ages
@@ -35,7 +67,7 @@
       <h2 class="timeline-title-static">1968</h2>
       <h3>Intel Founded</h3>
       <div class="timeline-img-container">
-        <img src="img/1.jpg" alt="Intel 1968" class="timeline-img" />
+  <img src="img/1.jpg" alt="Intel founders Robert Noyce and Gordon Moore, 1968" class="timeline-img" />
       </div>
       <div class="timeline-reveal-content">
         <p>
@@ -54,7 +86,7 @@
       <h2 class="timeline-title-static">1971</h2>
       <h3>First Microprocessor</h3>
       <div class="timeline-img-container">
-        <img src="img/2.jpg" alt="Intel 1971" class="timeline-img" />
+  <img src="img/2.jpg" alt="Intel 4004 microprocessor, 1971" class="timeline-img" />
       </div>
       <div class="timeline-reveal-content">
         <p>
@@ -73,7 +105,7 @@
       <h2 class="timeline-title-static">1978</h2>
       <h3>8086 Processor</h3>
       <div class="timeline-img-container">
-        <img src="img/3.jpg" alt="Intel 1978" class="timeline-img" />
+  <img src="img/3.jpg" alt="Intel 8086 processor, 1978" class="timeline-img" />
       </div>
       <div class="timeline-reveal-content">
         <p>
@@ -91,7 +123,7 @@
       <h2 class="timeline-title-static">1985</h2>
       <h3>386 Processor</h3>
       <div class="timeline-img-container">
-        <img src="img/4.jpg" alt="Intel 1985" class="timeline-img" />
+  <img src="img/4.jpg" alt="Intel 386 processor, 1985" class="timeline-img" />
       </div>
       <div class="timeline-reveal-content">
         <p>
@@ -110,7 +142,7 @@
       <h2 class="timeline-title-static">2006</h2>
       <h3>Peak GHG Emissions</h3>
       <div class="timeline-img-container">
-        <img src="img/semyon-borisov-zw5OdU_6Uvw-unsplash.jpg" alt="Intel 2006" class="timeline-img" />
+  <img src="img/semyon-borisov-zw5OdU_6Uvw-unsplash.jpg" alt="Intel sustainability efforts, 2006" class="timeline-img" />
       </div>
       <div class="timeline-reveal-content">
         <p>
@@ -130,7 +162,7 @@
       <h2 class="timeline-title-static">2020</h2>
       <h3>RISE Strategy</h3>
       <div class="timeline-img-container">
-        <img src="img/markus-spiske-zOdvBieWTYw-unsplash.jpg" alt="Intel 2020" class="timeline-img" />
+  <img src="img/markus-spiske-zOdvBieWTYw-unsplash.jpg" alt="Intel RISE strategy, 2020" class="timeline-img" />
       </div>
       <div class="timeline-reveal-content">
         <p>
@@ -149,7 +181,7 @@
       <h2 class="timeline-title-static">2022</h2>
       <h3>Net-Zero By 2040</h3>
       <div class="timeline-img-container">
-        <img src="img/dilip-poddar-7_Ght34z7sE-unsplash.jpg" alt="Intel 2022" class="timeline-img" />
+  <img src="img/dilip-poddar-7_Ght34z7sE-unsplash.jpg" alt="Intel net-zero commitment, 2022" class="timeline-img" />
       </div>
       <div class="timeline-reveal-content">
         <p>
@@ -168,7 +200,7 @@
       <h2 class="timeline-title-static">2023</h2>
       <h3>Renewable Electricity</h3>
       <div class="timeline-img-container">
-  <img src="img/mark-konig-WIxAt-XyXO0-unsplash.jpg" alt="Intel 2023" class="timeline-img" />
+  <img src="img/mark-konig-WIxAt-XyXO0-unsplash.jpg" alt="Intel renewable electricity, 2023" class="timeline-img" />
       </div>
       <div class="timeline-reveal-content">
         <p>
@@ -187,7 +219,7 @@
       <h2 class="timeline-title-static">2024</h2>
       <h3>Sustainability Summit</h3>
       <div class="timeline-img-container">
-  <img src="img/noah-buscher-x8ZStukS2PM-unsplash.jpg" alt="Intel 2024" class="timeline-img" />
+  <img src="img/noah-buscher-x8ZStukS2PM-unsplash.jpg" alt="Intel Sustainability Summit, 2024" class="timeline-img" />
       </div>
       <div class="timeline-reveal-content">
         <p>
@@ -201,6 +233,104 @@
       </div>
     </div>
   </section>
-  <p>Scroll to view timeline | Hover over cards to learn more!</p>
+  <p>Scroll to view timeline | Hover over cards to learn more</p>
+</section>
+</section>
+
+<!-- Footer Section -->
+
+<!-- 3-Column Content Section -->
+<section class="container my-5">
+  <div class="row g-4">
+    <!-- Column 1 -->
+    <div class="col-12 col-md-4">
+      <div class="bg-light rounded p-4 h-100 text-center shadow-sm">
+  <h2 class="mb-3"><i class="bi bi-bar-chart-line-fill" style="color:#0071c5; font-size: 1.5em; vertical-align: middle; margin-left: 8px;"></i>RISE Strategy</h2>
+        <p>
+          Under its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy, 
+          Intel sets ambitious 2030 goals, including driving industry-wide 
+          progress on climate action, water stewardship, and waste reduction.
+        </p>
+        <a href="#" class="btn btn-outline-primary mt-2">Learn More</a>
+      </div>
+    </div>
+    <!-- Column 2 -->
+    <div class="col-12 col-md-4">
+  <div class="bg-light rounded p-4 h-100 text-center shadow-sm high-contrast-bg high-contrast-text">
+  <h2 class="mb-3"><i class="bi bi-shield-check" style="color:#0071c5; font-size: 1.5em; vertical-align: middle; margin-left: 8px;"></i>Commitment</h2>
+        <p>
+          In 2022, Intel pledged to achieve net-zero greenhouse gas emissions 
+          (Scope 1 and 2) by 2040. This commitment builds on decades of 
+          environmental initiatives and partnerships across the semiconductor 
+          industry.
+        </p>
+  <a href="#" class="btn btn-outline-primary mt-2 high-contrast-link">Learn More</a>
+      </div>
+    </div>
+    <!-- Column 3 -->
+    <div class="col-12 col-md-4">
+      <div class="bg-light rounded p-4 h-100 text-center shadow-sm">
+  <h2 class="mb-3"><i class="bi bi-droplet-half" style="color:#0071c5; font-size: 1.5em; vertical-align: middle; margin-left: 8px;"></i>Water &amp; Waste</h2>
+        <p>
+          Intel conserves billions of gallons of water annually and 
+          collaborates with local communities to restore watersheds.
+          Intel also upcycles and recycles materials to reduce waste and 
+          advance a circular economy.
+        </p>
+        <a href="#" class="btn btn-outline-primary mt-2">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Subscription Form -->
+<section style="background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 48px; padding: 32px 0; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.04);">
+  <h2 style="text-align: center;">Subscribe to our Newsletter</h2>
+  <!-- Simple subscription form for beginners -->
+  <form id="subscribeForm" style="display: flex; flex-direction: column; align-items: center; gap: 10px; max-width: 320px; width: 100%;">
+    <div style="display: flex; flex-direction: row; gap: 8px; width: 100%; justify-content: center; align-items: center;">
+      <input type="email" id="email" name="email" required placeholder="email@example.com" style="flex: 1; padding: 8px; border-radius: 4px; border: 2px solid #00508a; min-width: 0; color: #1a1a1a; background: #fff;" aria-label="Email address" autocomplete="email" />
+      <button type="submit" style="padding: 8px 16px; border-radius: 4px; background: #00508a; color: #fff; border: none; font-weight: bold;" aria-label="Subscribe to newsletter">Subscribe</button>
+    </div>
+  </form>
+  <!-- Bootstrap Modal for confirmation -->
+  <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="subscribeModalLabel">Thank You!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          You have successfully subscribed to our newsletter.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Show modal on form submit
+    document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var modal = new bootstrap.Modal(document.getElementById('subscribeModal'));
+      modal.show();
+      this.reset();
+    });
+  </script>
+</section>
+
+<!-- Footer Section -->
+<footer class="text-center py-4 mt-5 border-top high-contrast-footer">
+  <div class="container">
+    <nav class="mb-2">
+  <a href="#" class="mx-2 text-decoration-none high-contrast-link">Privacy Policy</a>
+  <a href="#" class="mx-2 text-decoration-none high-contrast-link">Terms of Use</a>
+  <a href="#" class="mx-2 text-decoration-none high-contrast-link">Contact</a>
+    </nav>
+  <small class="high-contrast-text">&copy; 2025 Intel Corporation. All rights reserved.</small>
+  </div>
+</footer>
 </body>
 </html>
