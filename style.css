@@ -1,0 +1,282 @@
+/* Ensure all info including .card-details is revealed on image hover */
+.timeline-card-reveal .timeline-img-container:hover ~ .timeline-reveal-content,
+.timeline-card-reveal .timeline-img-container:hover ~ .timeline-reveal-content .card-details {
+	max-height: 300px;
+	opacity: 1;
+	margin-top: 10px;
+	overflow: visible;
+	transition: max-height 0.4s, opacity 0.4s;
+}
+/* Hide extra info in timeline card until image hover */
+
+.timeline-card-reveal .timeline-reveal-content {
+	opacity: 0;
+	overflow: hidden;
+	transition: opacity 0.4s;
+	margin-top: 0;
+	max-height: none;
+}
+
+.timeline-card-reveal .timeline-img-container:hover ~ .timeline-reveal-content,
+.timeline-card-reveal .timeline-img-container:focus ~ .timeline-reveal-content {
+	opacity: 1;
+	margin-top: 10px;
+}
+body {
+	background: #f6fafd;
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	min-height: 100vh;
+}
+
+main, .timeline-section {
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+p {
+	font-size: 1.1rem;
+	color: #222;
+	margin: 16px auto 0 auto;
+	text-align: center;
+}
+
+/* Add a little breathing room below the hero */
+.hero {
+	margin-bottom: 32px;
+}
+.timeline-card-reveal .timeline-img-container {
+	margin-top: 10px;
+	margin-bottom: 12px;
+}
+/* Static year at top for all cards */
+.timeline-title-static {
+	color: #0071c5;
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin-bottom: 0.2em;
+	margin-top: 0;
+	text-align: left;
+}
+
+.timeline-card-reveal h3 {
+	margin-top: 0;
+	margin-bottom: 12px;
+	text-align: left;
+}
+
+.timeline-card-reveal .timeline-img-container {
+	margin-top: 10px;
+	margin-bottom: 12px;
+}
+/* Hide extra info in timeline card until image hover */
+.timeline-card-reveal .timeline-reveal-content {
+	max-height: 0;
+	opacity: 0;
+	overflow: hidden;
+	transition: max-height 0.4s, opacity 0.4s;
+	margin-top: 0;
+}
+
+.timeline-card-reveal .timeline-img-container:hover ~ .timeline-reveal-content,
+.timeline-card-reveal .timeline-img-container:focus ~ .timeline-reveal-content {
+	max-height: 300px;
+	opacity: 1;
+	margin-top: 10px;
+}
+
+/* Hide all content except year and heading by default */
+.timeline-card-reveal .timeline-img-container ~ .timeline-reveal-content,
+.timeline-card-reveal .timeline-img-container ~ .timeline-reveal-content * {
+	pointer-events: none;
+}
+.timeline-card-reveal .timeline-img-container:hover ~ .timeline-reveal-content,
+.timeline-card-reveal .timeline-img-container:focus ~ .timeline-reveal-content,
+.timeline-card-reveal .timeline-img-container:hover ~ .timeline-reveal-content *,
+.timeline-card-reveal .timeline-img-container:focus ~ .timeline-reveal-content * {
+	pointer-events: auto;
+}
+/* Timeline Card Image Reveal Styles */
+.timeline-img-container {
+	position: relative;
+	width: 100%;
+	height: 120px;
+	margin-bottom: 12px;
+	overflow: hidden;
+	border-radius: 8px 8px 0 0;
+}
+
+.timeline-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.timeline-title {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #fff;
+	background: rgba(0,113,197,0.85);
+	padding: 8px 20px;
+	border-radius: 6px;
+	font-size: 1.4rem;
+	font-weight: bold;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s;
+	z-index: 2;
+}
+
+.timeline-img-container:hover .timeline-title {
+	opacity: 1;
+}
+
+.timeline-img-container .timeline-title {
+	opacity: 0;
+}
+.timeline-card {
+	background: #f4f8fb; /* Light Intel blue background */
+	color: #003c71; /* Intel dark blue text */
+	border: 2px solid #e0eaf3;
+	border-top: 6px solid #0071c5; /* Intel blue accent */
+	border-radius: 14px;
+	box-shadow: 0 2px 12px rgba(0,113,197,0.08);
+	min-width: 260px;
+	max-width: 320px;
+	width: 260px;
+	height: 260px;
+	flex: 0 0 260px;
+	padding: 24px 18px 18px 18px;
+	margin-bottom: 0;
+	scroll-snap-align: start;
+	transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.timeline-card h2 {
+	color: #0071c5;
+	font-size: 1.3rem;
+	margin-bottom: 0.2em;
+	text-align: left;
+}
+
+.timeline-card h3 {
+	color: #00a9e0;
+	font-size: 1.1rem;
+	margin-bottom: 0.7em;
+}
+
+/* Timeline section layout */
+.timeline-section {
+	display: flex;
+	flex-direction: row;
+	overflow-x: auto;
+	gap: 24px;
+	padding: 32px 0 16px 0;
+	/* scroll-snap-type removed for user-friendly scrolling */
+	max-width: calc(4 * 260px + 3 * 24px); /* 4 cards + 3 gaps */
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.timeline-card .card-details {
+	max-height: 0;
+	opacity: 0;
+	overflow: hidden;
+	transition: max-height 0.3s ease, opacity 0.3s ease;
+	background: #e0eaf3;
+	color: #003c71;
+	margin-top: 12px;
+	padding: 0 8px;
+	border-radius: 8px;
+	font-size: 0.97rem;
+}
+
+
+.timeline-card:hover {
+	background: #e0eaf3;
+}
+
+.timeline-card:hover .card-details {
+	max-height: 120px;
+	opacity: 1;
+}
+
+
+
+@media (max-width: 1100px) {
+	.timeline-section {
+		max-width: calc(2 * 260px + 1 * 24px); /* 2 cards + 1 gap */
+	}
+}
+
+@media (max-width: 800px) {
+	.timeline-section {
+		flex-direction: column;
+		overflow-x: visible;
+		gap: 18px;
+		align-items: center;
+		max-width: 95vw;
+	}
+	.timeline-card {
+		min-width: 0;
+		max-width: 95vw;
+		width: 100%;
+		height: auto;
+	}
+}
+/* Add your CSS here */
+
+/* Hero Section Styles */
+.hero {
+	background: linear-gradient(135deg, #0071c5 0%, #00a9e0 100%); /* Intel blue gradient */
+	color: #fff;
+	padding: 60px 20px 40px 20px;
+	text-align: center;
+	position: relative;
+}
+
+.hero-logo {
+	width: 120px;
+	height: auto;
+	margin-bottom: 24px;
+}
+
+.hero-headline {
+	font-size: 2.5rem;
+	font-weight: bold;
+	margin-bottom: 16px;
+	letter-spacing: 1px;
+	text-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.hero-subheading {
+	font-size: 1.25rem;
+	font-weight: 400;
+	margin-bottom: 0;
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	text-shadow: 0 1px 4px rgba(0,0,0,0.10);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+	.hero {
+		padding: 40px 10px 24px 10px;
+	}
+	.hero-headline {
+		font-size: 1.5rem;
+	}
+	.hero-logo {
+		width: 80px;
+	}
+}
